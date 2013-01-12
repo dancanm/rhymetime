@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 import string
 import urllib
+from random import choice
 
 app = Flask(__name__)
 
@@ -28,13 +29,16 @@ def get_rhyme_list(word):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
 	"""Respond to an incoming sms consisting of one word with a list of words and phrases that rhyme with that word."""
-
 	word = request.values.get('Body')
 	rhyme_list = get_rhyme_list(word)
-	text = ""
-	while len(rhyme_list) > 0 and len(text) + len rhyme_list[0] < 159:
-		text = text + " " + rhyme_list[0]
-		del rhyme_list[0]
+	if len(rhyme_list) > 0:
+		text = choice(rhyme_list)
+	else:
+		text = "Nothing rhymes with "+word+"."
+	#text = ""
+	#while len(rhyme_list) > 0 and len(text) + len(rhyme_list[0]) < 154:
+	#	text = text + " " + rhyme_list[0]
+	#	del rhyme_list[0]
 	resp = twilio.twiml.Response()
 	resp.sms(text)
 	return str(resp)
