@@ -1,3 +1,10 @@
+Text a word to 3215RHYME6, and you'll receive a rhyming word or phrase back.
+
+Rhymezone.com scraped by Beautiful Soup, Powered by Twilio, served by Flask, and hosted by WebFaction.
+
+--------------
+
+
 Copyright (C) 2012 Dan Meropol
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
